@@ -1,0 +1,383 @@
+ /* Reset CSS */
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: slopeOpera;
+    src: url(SlopeOpera.otf);
+  }
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    
+}
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(143, 137, 137, 0.377); /* Warna background yang lebih gelap */
+    gap: 20px;
+    padding: 10px 20px; /* Padding yang lebih besar dan lebih simetris */
+    border-radius: 25px; /* Radius border yang lebih besar untuk tampilan lebih bulat */
+    max-width: 300px; /* Lebar maksimum yang lebih besar */
+    margin: 0 auto; /* Tengah secara horizontal */
+    position: fixed;
+    top: 20px; /* Jarak dari atas */
+    left: 0;
+    right: 0; /* Navbar tetap terjaga di tengah */
+    z-index: 10; /* Z-index yang lebih tinggi */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan untuk efek depth */
+    backdrop-filter: blur(10px); /* Blur latar belakang */
+}
+
+nav a {
+    text-decoration: none;
+    color: #f0f0f0; /* Warna teks yang lebih cerah */
+    font-family: 'Arial', sans-serif; /* Font yang lebih bersih */
+    font-weight: bold; /* Font yang lebih tebal */
+    transition: color 0.3s ease, transform 0.3s ease; /* Transisi untuk perubahan warna dan efek transformasi */
+}
+
+nav a:hover {
+    color: #ffcc00; /* Warna saat hover */
+    transform: scale(1.1); /* Efek zoom saat hover */
+}
+
+nav li {
+    list-style: none;
+}
+
+nav ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    gap: 15px; /* Jarak antar item yang lebih besar */
+}
+
+.home{
+    background-image: url(image/Lightborn.png);
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    z-index: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.filter{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    top: 0;
+    z-index: 1;
+}
+
+.hero-list{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.hero-list img {
+    position: absolute;
+    animation-duration: 6s; /* Memperpanjang durasi animasi untuk gerakan yang lebih lambat */
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes moveAlucard {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(10px); } /* Mengurangi jarak agar gambar tidak melampaui batas */
+    100% { transform: translateY(0); }
+}
+
+@keyframes moveFanny {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(10px); } /* Mengurangi jarak agar gambar tidak melampaui batas */
+    100% { transform: translateX(0); }
+}
+
+@keyframes moveTigreal {
+    0% { transform: translate(-10px, 10px); }
+    50% { transform: translate(2px, -10px); }
+    100% { transform: translate(-10px, 10px); }
+}
+
+@keyframes moveHarith {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes moveGranger {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Terapkan animasi pada setiap gambar */
+.alucard {
+    animation-name: moveAlucard;
+}
+
+.fanny {
+    animation-name: moveFanny;
+}
+
+.tigreal {
+    animation-name: moveTigreal;
+}
+
+.harith {
+    animation-name: moveHarith;
+}
+
+.granger {
+    animation-name: moveGranger;
+}
+
+
+.alucard{
+    top: 0;   
+    width: 88%;
+    left: 60px;
+    
+}
+
+.fanny{
+    position: absolute;
+    width: 60%;
+    right: -12%;
+    top: -10%;
+}
+
+.harith{
+    position: absolute;
+    width: 55%;
+    right: 8%;
+    bottom: 0;
+    z-index:7;
+}
+
+.granger{
+    top: 30px;
+    width: 45%;
+    left: 5%;
+    z-index: 5;
+}
+
+.tigreal{
+    left: 5%;
+    width: 45%;
+    bottom: 0;
+    z-index: 6;
+}
+
+.alucard, .fanny, .tigreal, .harith, .granger{
+    position: absolute;
+    filter: drop-shadow(10px 10px 20px rgba(243, 225, 132, 0.582));
+}
+
+.text-lightborn{
+    position: absolute;
+    bottom: 100px;
+    left: 34%;
+    width: 40%;
+    z-index: 7;
+    filter: drop-shadow(10px 10px 20px rgba(243, 225, 132, 0.582));
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 300px;
+    background-color: aqua;
+}
+
+.card-header{
+    background-color: black;
+}
+
+.about-contain{
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+.about{
+    background-image: url(image/Legend\ Franco.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    z-index: 0;
+}
+
+.galery .about-contain .about-hero img{
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s;
+}
+.galery .about-contain .about-hero img.active{
+    opacity: 1.5;
+}
+
+.ling{
+    width: 20vw;
+    margin-top: 100px;
+    border-radius: 20px;
+    position: absolute;
+    left: 200px;
+    filter: drop-shadow(10px 10px 20px rgba(207, 206, 200, 0.582));
+    display: flex;
+}
+
+.about-hero h1{
+    position: absolute;
+    bottom: 80vh;
+    left: 60vw;
+    color: aliceblue;
+}
+
+.about-hero p {
+    position: absolute;
+    bottom: 70vh;
+    left: 45vw;
+    right: 50px;
+    font-size: 20px;
+    color: aliceblue;
+}
+
+.btn-primary {
+    background: #e8491d;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    bottom: 15    0px;
+    left: 100vh;
+    position: relative;
+    z-index: 10;
+}
+
+.btn-primary:hover {
+    background: #c73715;
+}
+
+
+.gallery{
+    background-image: url(image/bg-gallery.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+
+}
+
+.gambar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 500px;
+}
+
+.gambar img{
+    width: 500px;
+    
+}
+
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+  
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: relative;
+  bottom: 300px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  right: 500px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel Gallery</title>
+    <style>
+        /* Setel keseluruhan container carousel */
+        .carousel-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        /* Gaya untuk slides */
+        .carousel-slide {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide img {
+            min-width: 100%;
+            height: auto;
+        }
+
+        /* Gaya untuk tombol navigasi */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            z-index: 1000;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* Gaya untuk titik indikator */
+        .dot-container {
+            text-align: center;
+            padding: 20px;
+            background: #ddd;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="carousel-container">
+        <div class="carousel-slide">
+            <img src="skin/515.jpg" alt="Image 1">
+            <img src="skin/aspirant.png" alt="Image 2">
+            <img src="skin/Sparkle.jpg" alt="Image 3">
+ 
+        </div>
+        <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
+        <a class="next" onclick="moveSlide(1)">&#10095;</a>
+    </div>
+
+    <div class="dot-container">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+
+    <script>
+        const carouselSlide = document.querySelector('.carousel-slide');
+        const images = document.querySelectorAll('.carousel-slide img');
+
+        // Pengaturan awal
+        let counter = 1;
+        const size = images[0].clientWidth;
+
+        // Mulai carousel di posisi awal
+        carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+
+        // Fungsi untuk menggeser slide
+        function moveSlide(n) {
+            if (n < 0 && counter <= 0) return;
+            if (n > 0 && counter >= images.length - 1) return;
+
+            carouselSlide.style.transition = "transform 0.5s ease-in-out";
+            counter += n;
+            carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+
+            // Indikator aktif
+            updateDots(counter);
+        }
+
+        // Mengupdate indikator aktif
+        function updateDots(index) {
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, idx) => {
+                dot.className = dot.className.replace(" active", "");
+                if (idx === index - 1) {
+                    dot.className += " active";
+                }
+            });
+        }
+
+        // Menggeser slide ke posisi tertentu
+        function currentSlide(n) {
+            moveSlide(n - counter);
+        }
+
+        // Menangani loop di akhir/bagian awal
+        carouselSlide.addEventListener('transitionend', () => {
+            if (images[counter].alt === 'Image 1') {
+                carouselSlide.style.transition = "none";
+                counter = 1;
+                carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+            }
+        });
+
+       
+    </script>
+
+</body>
+</html>
