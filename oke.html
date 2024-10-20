@@ -123,12 +123,10 @@
             });
         }
 
-        // Menggeser slide ke posisi tertentu
         function currentSlide(n) {
             moveSlide(n - counter);
         }
 
-        // Menangani loop di akhir/bagian awal
         carouselSlide.addEventListener('transitionend', () => {
             if (images[counter].alt === 'Image 1') {
                 carouselSlide.style.transition = "none";
